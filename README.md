@@ -1,6 +1,5 @@
 # Local Development Setup
 ### All Sevices withing Docker
-NOTE: Do not update any of the ENV files for this particular configuration. ( Except the mount path for problems )
 1. Update the ``##YOUR_LOCAL_PATH_TO_PROBLEMS_DIR##`` in the docker-compose file
 2. Start the services
 ```bash
