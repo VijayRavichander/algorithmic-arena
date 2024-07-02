@@ -40,7 +40,7 @@ services:
     volumes:
       - ./judge0.conf:/judge0.conf:ro
       - type: bind
-        source: "##YOUR_LOCAL_PATH_TO_PROBLEMS_DIR## [repo]/apps/problems"
+        source: ./apps/problems
         target: /dev/problems
     ports:
       - "2358:2358"
@@ -55,7 +55,7 @@ services:
     volumes:
       - ./judge0.conf:/judge0.conf:ro
       - type: bind
-        source: "##YOUR_LOCAL_PATH_TO_PROBLEMS_DIR## [repo]/apps/problems"
+        source: ./apps/problems
         target: /dev/problems
     privileged: true
     restart: always

@@ -3,14 +3,13 @@
   "globalDependencies": [
     "**/.env.*local"
   ],
-  "tasks": {
+  "pipeline": {
     "build": {
       "dependsOn": [
         "^build"
       ],
       "outputs": [
-        ".next/**",
-        "!.next/cache/**"
+        ".next/**"
       ]
     },
     "lint": {

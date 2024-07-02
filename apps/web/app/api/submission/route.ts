@@ -99,6 +99,18 @@ export async function POST(req: NextRequest) {
     "##USER_CODE_HERE##",
     submissionInput.data.code
   );
+
+  const x = problem.inputs.map((input, index) => ({
+    language_id: LANGUAGE_MAPPING[submissionInput.data.languageId]?.judge0,
+    source_code: problem.fullBoilerplateCode.replace(
+      "##INPUT_FILE_INDEX##",
+      index.toString()
+    ),
+    expected_output: problem.outputs[index],
+  }))
+
+  console.log(x)
+  
   const response = await axios.post(
     `${JUDGE0_URI}/submissions/batch?base64_encoded=false`,
     {
@@ -112,6 +124,9 @@ export async function POST(req: NextRequest) {
       })),
     }
   );
+  
+  console.log(response.data)
+
 
   const submission = await db.submission.create({
     data: {
